@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class InputPage extends StatefulWidget {
   const InputPage({Key? key}) : super(key: key);
 
@@ -16,12 +15,55 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: const Text(appName),
       ),
-      body: Container(
-      color: const Color(0xFF1D1E33),
-        margin: const EdgeInsets.all(15.0),
-        height: 200.0,
-        width: 170.0,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: Row(
+              children:  [
+                Expanded(
+                  child: ReusableCard(colour: const Color(0xFF1D1E33),),
+                ),
+                Expanded(
+                  child: ReusableCard(colour: const Color(0xFF1D1E33),),
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: ReusableCard(colour: const Color(0xFF1D1E33),),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ReusableCard(colour: const Color(0xFF1D1E33),),
+                ),
+                Expanded(
+                  child: ReusableCard(colour: const Color(0xFF1D1E33),),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class ReusableCard extends StatelessWidget {
+
+  ReusableCard({required this.colour});
+
+  Color colour;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+          color: colour,
+          borderRadius: BorderRadius.circular(10.0)),
     );
   }
 }
